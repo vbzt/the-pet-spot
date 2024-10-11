@@ -96,10 +96,37 @@ module.exports = class UserController {
       const token = getToken(req)
       const decoded = jwt.verify(token,'getapetsecrettoken')
 
+     currentUser = await User.findById(decoded.id)
+  
+      currentUser.password = undefined
+
     }else{ 
       currentUser = null
     }
-
     res.status(200).send(currentUser)
+  }
+
+  static async getUserById(req, res) { 
+    const id = req.params.id 
+    const user = await User.findById(id).select("-password")
+
+    if(!user){ 
+      res.status(422).json({ message: 'Usuario nao encontrado'})
+      return
+    }
+    
+    res.status(200).json({user})
+  }
+
+  static async editUser(req, res){
+    const { name, email, phone, password, confirmpassword} = req.body 
+    const id = req.params.id
+
+    const user = await User.findById(id)
+    if(!user){
+       res.status(422).json({message: 'Usuario nao encontrado'})
+    }
+
+
   }
 }
