@@ -2,43 +2,18 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
+const formValidation = require('../helpers/form-validation')
+const editValidation = require('../helpers/edit-validation')
 const createUserToken = require('../helpers/create-user-token')
 const getToken = require('../helpers/get-token')
+const getUserByToken = require('../helpers/get-user-by-token')
 
 module.exports = class UserController { 
 
   static async register(req, res){ 
     const { name, email, phone, password, confirmpassword} = req.body
 
-    if(!name){
-      res.status(422).json('O nome é obrigatorio')
-      return
-    }
-
-    if(!email){
-      res.status(422).json('O email é obrigatorio')
-      return
-    }
-
-    if(!phone){
-      res.status(422).json('O telefone é obrigatorio')
-      return
-    }
-
-    if(!password){
-      res.status(422).json('A senha é obrigatoria')
-      return
-    }
-
-    if(!confirmpassword){
-      res.status(422).json('A confirmação de senha é obrigatoria')
-      return
-    }
-
-    if(password !== confirmpassword){ 
-      res.status(422).json('A senha e a confirmação de senha devem ser iguais')
-      return
-    }
+    if (!formValidation(req, res) || confirmpassword !== password) return
 
     const userExists = await User.findOne({email: email})
     if (userExists) {
@@ -78,7 +53,7 @@ module.exports = class UserController {
       res.status(422).json('Nao ha usuario cadastrado com esse email')
       return 
     }
-
+    console.log(password)
     const checkPassword = await bcrypt.compare(password, user.password)
     if(!checkPassword ){
       res.status(422).json('Senha incorreta')
@@ -122,10 +97,24 @@ module.exports = class UserController {
     const { name, email, phone, password, confirmpassword} = req.body 
     const id = req.params.id
 
-    const user = await User.findById(id)
-    if(!user){
-       res.status(422).json({message: 'Usuario nao encontrado'})
+    const token = getToken(req) 
+    const user = await getUserByToken(token)
+    let img = ''
+
+    // validations 
+    if (!formValidation(req, res)) return
+
+    const userExists = await User.findOne({email: email})
+    if (user.email !== email && userExists) {
+      res.status(422).json('Por favor utilize outro email')
+      return 
     }
+
+    user.name = name
+    user.email = email
+    user.phone = phone
+    //
+
 
 
   }
