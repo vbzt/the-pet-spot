@@ -100,9 +100,11 @@ module.exports = class UserController {
     const token = getToken(req) 
     const user = await getUserByToken(token)
     let img = ''
-
+    if(req.file){ 
+      user.image = req.file.filename
+    }
     // validations 
-    if (!formValidation(req, res)) return
+    if (!editValidation(req, res)) return
 
     const userExists = await User.findOne({email: email})
     if (user.email !== email && userExists) {
@@ -110,9 +112,29 @@ module.exports = class UserController {
       return 
     }
 
+    if(password){ 
+      const salt = await bcrypt.genSalt(12)
+      const passwordHash = await bcrypt.hash(password, salt)
+      user.password = passwordHash
+    }
+
     user.name = name
     user.email = email
     user.phone = phone
+
+    try {
+        // updated data
+        await User.findOneAndUpdate( { _id: user._id}, { $set: user }, { new: true } )
+        res.status(200).json('Usuário atualizado com sucesso')
+
+
+
+    } catch (error) {
+      res.status(500).json({message: error})
+      return
+    }
+
+    console.log(user)
     //
 
 
