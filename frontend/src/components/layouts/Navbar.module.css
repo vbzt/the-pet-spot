@@ -1,0 +1,22 @@
+nav{ 
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav .logo{ 
+  display: flex;
+  align-items: center;
+  gap: 2cqh;
+  width: 100%;
+}
+
+nav .logo img{ 
+  width: 8cqh;
+}
+
+nav ul{ 
+  display: flex;
+  gap: 4cqh;
+  list-style: none;
+}
