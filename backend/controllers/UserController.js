@@ -53,7 +53,6 @@ module.exports = class UserController {
       res.status(422).json('Nao ha usuario cadastrado com esse email')
       return 
     }
-    console.log(password)
     const checkPassword = await bcrypt.compare(password, user.password)
     if(!checkPassword ){
       res.status(422).json('Senha incorreta')
@@ -134,8 +133,6 @@ module.exports = class UserController {
       return
     }
 
-    console.log(user)
-    //
 
 
 
