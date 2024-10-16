@@ -6,7 +6,7 @@ async function main(){
     console.log('>> mongoose ok')
   }
   catch(e){
-    console.log('>> mongo ose err: ', e)
+    console.log('>> mongoose err: ', e)
   }
 }
 
