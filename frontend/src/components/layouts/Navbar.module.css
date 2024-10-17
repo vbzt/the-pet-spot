@@ -1,22 +1,49 @@
-nav{ 
+.navbar{ 
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-nav .logo{ 
+.navbar .logo{ 
   display: flex;
   align-items: center;
   gap: 2cqh;
   width: 100%;
 }
 
-nav .logo img{ 
+.navbar div img{ 
   width: 8cqh;
 }
 
-nav ul{ 
+.navbar ul{ 
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 4cqh;
   list-style: none;
 }
+
+.navbar ul li{ 
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1000px){
+  .navbar h2{ 
+    font-size: 3cqw;
+  }
+
+  .navbar ul{ 
+    padding: 0;
+    gap: 3cqw;
+  }
+
+  .navbar ul li a { 
+    font-size: 3cqw;
+  }
+
+  .navbar div img{ 
+    width: 10cqw;
+  }
+}
+  

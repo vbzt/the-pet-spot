@@ -4,10 +4,10 @@ import styles from './Navbar.module.css'
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className= {styles.navbar}>
       <div className= {styles.logo}>
         <img src= {Logo} alt="" />
-        <h2>Pet Spot</h2>
+        <h2>The Pet Spot</h2>
       </div>
       <ul>
         <li><NavLink to = '/'>Adotar</NavLink></li>
