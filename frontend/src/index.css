@@ -38,8 +38,8 @@ html, body {
   --corTexto: #231F20;
   --corFundo: #F0F0F0;
   --colorido: #E99E22;
-  --corError: #c55e5e;
-  --corSucesso: #5e8e76;
+  --error: #c55e5e;
+  --success: #5e8e76;
 }
 
 span{ 

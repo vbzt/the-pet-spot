@@ -1,0 +1,15 @@
+.message{
+  width: 40%;
+  margin: 0 auto 0;
+  text-align: center;
+  padding: 1.3cqh;
+  font-weight: 500;
+}
+
+.success{ 
+  color: var(--success);
+}
+
+.error{
+  color: var(--error);
+}
