@@ -1,0 +1,30 @@
+.formControl{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formControl label{ 
+  font-size: 2cqh;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.formControl input{ 
+  padding: 1.4cqh;
+  border: 1px solid #929292;
+  border-radius: 7px;
+  font-size: 1.6cqh;
+  font-weight: 500;
+  color: #333;
+  background-color: var(--corFundo);
+}
+
+.formControl input::placeholder{
+  color: #333;
+}
+
+.formControl input:focus{ 
+  border: 1px solid var(--colorido);
+  color: #000000;
+}
