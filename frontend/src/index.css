@@ -36,7 +36,7 @@ html, body {
 
 :root {
   --corTexto: #231F20;
-  --corFundo: #fefefe;
+  --corFundo: #F0F0F0;
   --colorido: #E99E22;
   --corError: #c55e5e;
   --corSucesso: #5e8e76;
@@ -60,7 +60,7 @@ span{
 }
 
 #root{ 
-  padding: 4cqh;
+  padding: 3cqh 4cqh;
   background-color: var(--corFundo);
 }
 
