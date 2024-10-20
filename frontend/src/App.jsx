@@ -6,18 +6,24 @@ import Navbar from "./components/layouts/Navbar"
 import Footer from "./components/layouts/Footer"
 import Container from "./components/layouts/Container"
 
+import { UserProvider } from "./context/UserContext"
+import Message from "./components/layouts/Message"
+
 function App() {
   return (
     <Router>
-      <Navbar></Navbar>
-        <Container>
-        <Routes>
-          <Route path="/login" element = {<Login></Login>}></Route>
-          <Route path="/register" element = {<Register></Register>}></Route>
-          <Route path="/" element = {<Home></Home>}></Route>
-        </Routes>
-        </Container>
-      <Footer></Footer>
+      <UserProvider>
+        <Navbar></Navbar>
+        <Message></Message>
+          <Container>
+          <Routes>
+            <Route path="/login" element = {<Login></Login>}></Route>
+            <Route path="/register" element = {<Register></Register>}></Route>
+            <Route path="/" element = {<Home></Home>}></Route>
+          </Routes>
+          </Container>
+        <Footer></Footer>
+      </UserProvider>
     </Router>
   )
 }
