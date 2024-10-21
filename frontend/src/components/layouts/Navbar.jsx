@@ -20,7 +20,8 @@ const Navbar = () => {
         { authenticated ? 
         (
           <>
-            <li onClick={logout}>Sair</li>
+            <li><NavLink to= '/' ></NavLink></li>
+            <li className= {styles.logout} onClick={logout}>Sair</li>
           </>
         ) 
         : 

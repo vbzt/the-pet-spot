@@ -29,6 +29,10 @@
   font-size: 1.7cqh;
 }
 
+.navbar ul .logout{ 
+  cursor: pointer;
+}
+
 @media (max-width: 1000px){
   .navbar h2{ 
     font-size: 3cqw;
