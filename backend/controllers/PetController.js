@@ -49,7 +49,7 @@ module.exports = class PetController {
     const token = getToken(req)
     const user = await getUserByToken(token)
     const pets = await Pet.find({'adopter._id': user._id}).sort('-createdAT')
-    res.status(200).json({message: 'ASDASD', pets})
+    res.status(200).json({message: `Todas as adoções do usuário: ${user.name}`, pets})
   }
 
   static async getPetById(req,res){ 
