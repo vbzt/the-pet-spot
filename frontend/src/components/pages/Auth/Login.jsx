@@ -9,17 +9,18 @@ import { Context } from "../../../context/UserContext"
 const Login = () => {
 
   const [user, setUser] = useState({})
-  const {register} = useContext(Context)
+  const {login} = useContext(Context)
   const handleChange = (e) => { 
+    setUser({...user, [e.target.name]: e.target.value})
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    register(user)
+    login(user)
   }
   return (
     <section className= {styles.formContainer}>
-      <h1>Registrar conta</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit} >
         <Input text='E-mail' type = 'email' name = 'email' placeholder= 'Digite o seu email' handleOnChange={handleChange}></Input>
         <Input text='Senha' type = 'password' name = 'password' placeholder= 'Digite a sua senha' handleOnChange={handleChange}></Input>
