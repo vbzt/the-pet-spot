@@ -2,8 +2,7 @@ import { NavLink } from "react-router-dom"
 import Logo from '../../assets/img/logo.svg'
 import styles from './Navbar.module.css'
 
-import { Context } from "../../context/UserContext"
-import { useContext } from "react"
+
 
 
 const Navbar = () => {
@@ -20,7 +19,7 @@ const Navbar = () => {
         { authenticated ? 
         (
           <>
-            <li><NavLink to= '/' ></NavLink></li>
+            <li><NavLink to= '/user/profile/edit' >Perfil</NavLink></li>
             <li className= {styles.logout} onClick={logout}>Sair</li>
           </>
         ) 

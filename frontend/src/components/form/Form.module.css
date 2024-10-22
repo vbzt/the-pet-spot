@@ -13,7 +13,7 @@
 
 .formContainer form input[type = 'submit']{ 
   
-  margin-top: 0.5em;
+  margin-top: 1.7cqh;
   padding: 1.4cqh;
   border: 1px solid #949494;
   border-radius: 7px;
@@ -34,4 +34,11 @@
 
 .formContainer p{ 
   font-weight: 600;
+  font-size: 1.6cqh;
+}
+
+@media (max-width: 1000px){
+  .formContainer p{ 
+
+  }
 }
