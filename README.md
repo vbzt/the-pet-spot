@@ -1,5 +1,6 @@
 #  The pet spot
 > The pet spot is an application for managing an animal adoption center
+>> Im currently working on this project so its not 100% ready
 
 ## Developers
 - Fullstack
